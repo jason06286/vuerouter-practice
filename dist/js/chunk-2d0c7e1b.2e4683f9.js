@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0c7e1b"],{5307:function(t,e,n){"use strict";n.r(e);var c=n("7a23"),u=Object(c["h"])("h2",null,"付款成功",-1),r=Object(c["g"])("回首頁");function b(t,e){var n=Object(c["A"])("router-link");return Object(c["t"])(),Object(c["e"])("div",null,[u,Object(c["h"])(n,{to:"/"},{default:Object(c["L"])((function(){return[r]})),_:1})])}const o={};o.render=b;e["default"]=o}}]);
+//# sourceMappingURL=chunk-2d0c7e1b.2e4683f9.js.map
