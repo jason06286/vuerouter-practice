@@ -9,7 +9,7 @@
         class="form-control"
         :class="{ 'is-invalid': errors['name'] }"
         placeholder="請輸入 name"
-        :rules="isRequired"
+        rules="required"
         v-model="user.name"
       ></Field>
       <ErrorMessage name="name" class="invalid-feedback"></ErrorMessage>
@@ -23,7 +23,7 @@
         class="form-control"
         :class="{ 'is-invalid': errors['email'] }"
         placeholder="請輸入 Email"
-        :rules="isRequired"
+        rules="email|required"
         v-model="user.email"
       ></Field>
       <ErrorMessage name="email" class="invalid-feedback"></ErrorMessage>
@@ -51,7 +51,7 @@
         class="form-control"
         :class="{ 'is-invalid': errors['address'] }"
         placeholder="請輸入 address"
-        :rules="isRequired"
+        rules="required"
         v-model="user.address"
       ></Field>
       <ErrorMessage name="address" class="invalid-feedback"></ErrorMessage>
@@ -78,8 +78,6 @@
 </template>
 
 <script>
-import { Field, Form, ErrorMessage } from 'vee-validate';
-
 export default {
   data() {
     return {
@@ -88,19 +86,7 @@ export default {
       isLoading: '',
     };
   },
-  components: {
-    Field,
-    Form,
-    ErrorMessage,
-  },
   methods: {
-    isRequired(value) {
-      if (value && value.trim()) {
-        return true;
-      }
-
-      return 'This is required';
-    },
     isPhone(value) {
       const phoneNumber = /^(09)[0-9]{8}$/;
       return phoneNumber.test(value) ? true : '需要正確的電話號碼';

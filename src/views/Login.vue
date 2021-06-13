@@ -1,31 +1,39 @@
 <template>
   <div class="container my-5">
     <h1>Login</h1>
-    <form @click.prevent="signIn">
+    <Form v-slot="{ errors }" @submit="signIn">
       <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input
+        <label for="email" class="form-label">Email</label>
+        <Field
+          id="email"
+          name="email"
           type="email"
           class="form-control"
-          id="exampleInputEmail1"
-          aria-describedby="emailHelp"
+          :class="{ 'is-invalid': errors['email'] }"
+          placeholder="請輸入 Email"
+          rules="email|required"
           v-model="user.username"
-        />
-        <div id="emailHelp" class="form-text">
-          We'll never share your email with anyone else.
-        </div>
+        ></Field>
+
+        <ErrorMessage name="email" class="invalid-feedback"></ErrorMessage>
       </div>
       <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input
+        <label for="password" class="form-label">Password</label>
+        <Field
+          id="password"
+          name="password"
           type="password"
           class="form-control"
-          id="exampleInputPassword1"
+          :class="{ 'is-invalid': errors['password'] }"
+          placeholder="請輸入 Email"
+          rules="required"
           v-model="user.password"
-        />
+        ></Field>
+
+        <ErrorMessage name="password" class="invalid-feedback"></ErrorMessage>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    </Form>
   </div>
 </template>
 
